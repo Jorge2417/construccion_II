@@ -1,0 +1,16 @@
+Tipo Prueba:  	                                 
+                  
+    P1 		Prueba-unitaria
+    ----------------
+    P2 		Prueba-unitaria y funcional
+    ----------------
+    P3 		Prueba-unitaria
+    ----------------
+    P4 		Prueba-de-integración
+    ----------------
+    P5 		Prueba-de-integración
+    ----------------
+    P6      Prueba-funcional
+    ----------------  	  	  	  	  	 
+
+ 
