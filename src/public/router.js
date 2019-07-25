@@ -1,6 +1,6 @@
 const api = require('express').Router();
 
-const vistaDocument = require('../controller/documentController');
+const vistaDocument = require('../reposity/documentController');
 
 api.get('/', vistaDocument.list);
 api.get('/registrar', vistaDocument.registrar);

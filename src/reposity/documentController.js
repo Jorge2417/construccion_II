@@ -1,4 +1,4 @@
-const listado = require('../dataAccessObject/documentoDAO');
+const listado = require('./persistencia/documentoDAO');
 
 const Nota = require('../model/mynota');
 
@@ -21,16 +21,18 @@ function myDecidir(type) {
 redirectDocumente.decide = async (req, res) => {
     //console.log(tast);
     const tast = await Nota.findOne({_id: req.params.id});
-    
     const num = myDecidir(tast.universidad);
-    console.log("my nota  "+num.uni);
+    //console.log(tast.universidad);
+    if(num.uni != tast.universidad){
+        res.redirect('/');
+    }
     if(num.uni == 'UNAS'){
-        listado.list(tast, (data)=> {
+        listado.listado(req, (data)=> {
             res.render('notasPorcentaje', {tasks: data} );
         });    
     }
     if(num.uni == 'UNI'){
-        listado.list(tast, (data)=> {
+        listado.listado(req, (data)=> {
             res.render('notasPromedio', {tasks: data} );
         });
     }        
@@ -59,13 +61,13 @@ redirectDocumente.newNota =(req, res) =>{
     res.redirect('/');
 };
 redirectDocumente.listPor = (req, res) =>{
-    console.log(req.body);
+   // console.log(req.body);
     listado.listado(req, (data)=>{
         res.render('notasPorcentaje', {tasks: data});
     });
 }
 redirectDocumente.listPro = (req, res)=>{
-    console.log(req.body);
+    //console.log(req.body);
     listado.listado(req, (data)=>{
         res.render('notasPromedio', {tasks: data});
     });

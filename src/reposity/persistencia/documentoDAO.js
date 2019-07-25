@@ -1,6 +1,6 @@
-const Task = require('../model/tasks');
-const Nota = require('../model/mynota');
-const logica = require('../logic/documentLogic');
+const Task = require('../../model/tasks');
+const Nota = require('../../model/mynota');
+const logica = require('../../logic/documentLogic');
 
 const connectDocument = {};
 
