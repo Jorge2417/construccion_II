@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const Shema = mongoose.Schema;
 
 const myNota = new Shema({
+    usuario: String,
+    universidad: String,
     parcial1: String, 
     parcial2: String,
     proParcial: String,

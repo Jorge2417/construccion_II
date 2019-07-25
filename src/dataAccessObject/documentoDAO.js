@@ -5,8 +5,9 @@ const logica = require('../logic/documentLogic');
 const connectDocument = {};
 
 connectDocument.list = async(req, data) =>{
-    const tast = await Task.find();
-    console.log(tast);
+    //Nota po Task
+    const tast = await Nota.find();
+    //console.log(tast);
     data(tast); 
 };
 

@@ -9,4 +9,5 @@ api.post('/newnota', vistaDocument.newNota );
 api.get('/Nota', vistaDocument.ver);
 api.get('/porcentaje', vistaDocument.listPor);
 api.get('/promedio', vistaDocument.listPro);
+api.get('/decidir/:id', vistaDocument.decide);
 module.exports = api;

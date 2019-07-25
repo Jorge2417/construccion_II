@@ -1,9 +1,43 @@
 const listado = require('../dataAccessObject/documentoDAO');
 
+const Nota = require('../model/mynota');
+
+
 const redirectDocumente = {};
 
+function Decidir(uni){
+    this.uni = uni;
+}
+function myDecidir(type) {    
+    if(type == 'UNAS'){
+        return new Decidir(type);
+    } 
+    if(type == 'UNI'){
+        return new Decidir(type);
+    }
+}
+
+
+redirectDocumente.decide = async (req, res) => {
+    //console.log(tast);
+    const tast = await Nota.findOne({_id: req.params.id});
+    console.log(tast.universidad);
+    const num = myDecidir(tast.universidad);
+    if(num == 'UNAS'){
+        listado.list(tast, (data)=> {
+            res.render('notasPorcentaje', {tasks: data} );
+        });    
+    }
+    if(num == 'UNI'){
+        listado.list(tast, (data)=> {
+            res.render('notasPromedio', {tasks: data} );
+        });
+    }
+
+    myDecidir(tast);         
+}
+
 redirectDocumente.list = (req, res) => {
-    console.log(req.body);
     listado.list(req, (data)=> {
         res.render('form', {tasks: data} );
     });
@@ -38,3 +72,6 @@ redirectDocumente.listPro = (req, res)=>{
     });
 }
 module.exports = redirectDocumente;
+
+
+

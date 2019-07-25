@@ -31,6 +31,10 @@ logicDocument.save = (body) => {
    
     return rg;
 };
+/*
+function factory(nota1,nota2,nota3,nota4) {
+
+}*/
 
 logicDocument.calculate = (body) => {
     const resul  =  promedio.printMsg(body.parcial1,body.parcial2, body.trabajo, body.final);
@@ -44,6 +48,8 @@ logicDocument.calculate = (body) => {
     const b = Math.round(resultado);
     
     const dato = {
+        usuario: body.usuario,
+        universidad: body.universidad,
         parcial1: body.parcial1,
         parcial2: body.parcial2,
         proParcial: proP,
