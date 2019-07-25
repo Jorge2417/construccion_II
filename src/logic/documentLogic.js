@@ -1,4 +1,6 @@
 const myservicio = require('../service/documentService');
+const promedio = require('salvanotapro');
+const porcentaje = require('salvanotapor');
 
 const logicDocument = {};
 
@@ -29,5 +31,35 @@ logicDocument.save = (body) => {
    
     return rg;
 };
+
+logicDocument.calculate = (body) => {
+    const resul  =  promedio.printMsg(body.parcial1,body.parcial2, body.trabajo, body.final);
+    const proP = promedio.printParcial(body.parcial1,body.parcial2);
+    const resultado = porcentaje.printMsg(body.parcial1,body.parcial2, body.trabajo, body.final);
+    const porP = porcentaje.printParcials(body.parcial1,body.parcial2);
+    const porT = porcentaje.printTrab(body.trabajo);
+    const porF = porcentaje.printFin(body.final);
+/////////
+    const a = Math.round(resul);
+    const b = Math.round(resultado);
+    
+    const dato = {
+        parcial1: body.parcial1,
+        parcial2: body.parcial2,
+        proParcial: proP,
+        porParcial: porP,
+        trabajo: body.trabajo,
+        proTra: porT,
+        final: body.final,
+        proFinal: porF,
+        promedio: resul,
+        porcentaje: resultado,
+        notaPro: a,
+        notaPor: b
+    };
+
+    return dato;
+}
+
 
 module.exports = logicDocument;

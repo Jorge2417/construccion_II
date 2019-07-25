@@ -1,0 +1,42 @@
+<% include partes/_header %>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-7">
+            <h2>    List the Documents</h2>
+                <br>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>N°</th>
+                            <th>Parcial I</th>
+                            <th>Parcial II</th>
+                            <th>Promedio P</th>
+                            <th>Nota de Trabajo</th>
+                            <th>Promedio T</th>                                                                        
+                            <th>Examen Final</th>
+                            <th>Promedio F</th>
+                            <th>Promedios</th>
+                            <th>Nota</th>
+                        </tr>
+                    </thead>
+                    <tbody>                           
+                        <% for(var i=0; i< tasks.length; i++) { %>
+                            <tr>
+                                <td><%= i + 1 %></td>
+                                <td><%= tasks[i].parcial1 %></td>                                        
+                                <td><%= tasks[i].parcial2 %></td>
+                                <td><%= tasks[i].proParcial %></td>
+                                <td><%= tasks[i].trabajo %></td>
+                                <td><%= tasks[i].trabajo %></td>
+                                <td><%= tasks[i].final %></td>
+                                <td><%= tasks[i].final %></td>                                                                                  
+                                <td><%= tasks[i].promedio %></td>
+                                <td><%= tasks[i].notaPro %></td>
+                            </tr>                                    
+                        <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div> 
+<% include partes/_final %>

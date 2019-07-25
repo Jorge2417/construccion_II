@@ -1,6 +1,4 @@
 const express = require('express');
-/*const myConnection = require('express-myconnection');
-const mysql = require('mysql');*/
 const path = require('path');
 const morgan = require('morgan');
 const app = express();
@@ -12,7 +10,7 @@ app.set('port', process.env.PORT || 3000);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'public'));
 
-app.use(morgan('dev'));
+//app.use(morgan('dev'));
 /*app.use(myConnection(mysql, {
     host: 'localhost',
     user: 'root',
