@@ -21,20 +21,19 @@ function myDecidir(type) {
 redirectDocumente.decide = async (req, res) => {
     //console.log(tast);
     const tast = await Nota.findOne({_id: req.params.id});
-    console.log(tast.universidad);
+    
     const num = myDecidir(tast.universidad);
-    if(num == 'UNAS'){
+    console.log("my nota  "+num.uni);
+    if(num.uni == 'UNAS'){
         listado.list(tast, (data)=> {
             res.render('notasPorcentaje', {tasks: data} );
         });    
     }
-    if(num == 'UNI'){
+    if(num.uni == 'UNI'){
         listado.list(tast, (data)=> {
             res.render('notasPromedio', {tasks: data} );
         });
-    }
-
-    myDecidir(tast);         
+    }        
 }
 
 redirectDocumente.list = (req, res) => {
